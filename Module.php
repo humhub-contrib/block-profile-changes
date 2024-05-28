@@ -7,12 +7,8 @@
 
 namespace humhub\modules\blockprofilechanges;
 
-use Yii;
-use yii\helpers\Url;
-
 class Module extends \humhub\components\Module
 {
-
     /**
      * @var array a map of controllerId.actionId pairs which are forbiddden
      */
@@ -22,10 +18,4 @@ class Module extends \humhub\components\Module
         'account.delete',
         'account.edit',
     ];
-
-    /**
-     * @inheritdoc
-     */
-    public $resourcesPath = 'resources';
-
 }
