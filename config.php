@@ -17,7 +17,6 @@ return [
     'namespace' => 'humhub\modules\blockprofilechanges',
     'events' => [
         [AccountController::class, AccountController::EVENT_BEFORE_ACTION, ['\humhub\modules\blockprofilechanges\Events', 'onControllerAction']],
-        [AccountMenu::class, AccountMenu::EVENT_BEFORE_RUN, ['\humhub\modules\blockprofilechanges\Events', 'onAccountMenu']]
-    ]
+        [AccountMenu::class, AccountMenu::EVENT_BEFORE_RUN, ['\humhub\modules\blockprofilechanges\Events', 'onAccountMenu']],
+    ],
 ];
-?>

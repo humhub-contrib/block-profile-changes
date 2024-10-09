@@ -12,7 +12,6 @@ use yii\helpers\Url;
 
 class Module extends \humhub\components\Module
 {
-
     /**
      * @var array a map of controllerId.actionId pairs which are forbiddden
      */
