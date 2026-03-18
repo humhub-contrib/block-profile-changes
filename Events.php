@@ -12,8 +12,6 @@ use humhub\components\Controller;
 use humhub\modules\user\widgets\AccountMenu;
 use Yii;
 use yii\base\ActionEvent;
-use yii\helpers\Url;
-use yii\web\HttpException;
 
 class Events
 {
@@ -36,7 +34,8 @@ class Events
         /** @var AccountMenu $accountMenu */
         $accountMenu = $event->sender;
 
-        $accountMenu->deleteItemByUrl(Url::to(['/user/account/edit']));
-
+        if ($entry = $accountMenu->getEntryByUrl(['/user/account/edit'])) {
+            $accountMenu->removeEntry($entry);
+        }
     }
 }
