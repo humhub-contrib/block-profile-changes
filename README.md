@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- HumHub 1.3+
+- HumHub 1.18+
 
 ## Installation
 

@@ -3,7 +3,9 @@
     "name": "Block profile changes",
     "description": "Removes the ability for users to edit their profile, change password/e-mail or delete the account.",
     "keywords": [
-        "api"
+        "profile",
+        "account",
+        "block"
     ],
     "version": "1.0.1",
     "humhub": {

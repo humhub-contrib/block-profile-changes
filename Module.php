@@ -8,17 +8,16 @@
 
 namespace humhub\modules\blockprofilechanges;
 
-use Yii;
-use yii\helpers\Url;
-
 class Module extends \humhub\components\Module
 {
     /**
-     * @var array a map of controllerId.actionId pairs which are forbiddden
+     * @var array a map of controllerId.actionId pairs which are forbidden
      */
     public $forbiddenActions = [
         'account.change-email',
+        'account.change-email-validate',
         'account.change-password',
+        'account.change-username',
         'account.delete',
         'account.edit',
     ];

@@ -9,7 +9,9 @@
 namespace humhub\modules\blockprofilechanges;
 
 use humhub\components\Controller;
+use humhub\modules\ui\menu\MenuLink;
 use humhub\modules\user\widgets\AccountMenu;
+use humhub\modules\user\widgets\AccountTopMenu;
 use Yii;
 use yii\base\ActionEvent;
 
@@ -25,7 +27,7 @@ class Events
 
         if (in_array($controller->id . '.' . $event->action->id, $module->forbiddenActions)) {
             $event->isValid = false;
-            $event->result = Yii::$app->response->redirect(['/activity/user']);
+            $event->result = Yii::$app->response->redirect(['/user/account/edit-settings']);
         }
     }
 
@@ -37,5 +39,22 @@ class Events
         if ($entry = $accountMenu->getEntryByUrl(['/user/account/edit'])) {
             $accountMenu->removeEntry($entry);
         }
+    }
+
+    public static function onAccountTopMenu($event)
+    {
+        /** @var AccountTopMenu $topMenu */
+        $topMenu = $event->sender;
+
+        // The profile edit page is blocked, so link the settings entry to the allowed general settings
+        if (($entry = $topMenu->getEntryByUrl(['/user/account/edit'])) instanceof MenuLink) {
+            $entry->setUrl(['/user/account/edit-settings']);
+        }
+    }
+
+    public static function onProfileEditButton($event)
+    {
+        // The "Edit account" button leads to the blocked profile edit page
+        $event->isValid = false;
     }
 }
